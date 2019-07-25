@@ -1,0 +1,32 @@
+{
+  "name": "cdc-backend",
+  "version": "4.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "build": "node server.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "JavaScript",
+    "Express JS",
+    "Mongo DB",
+    "node JS",
+    "API"
+  ],
+  "author": "Gustavo Ilha Morais <gustavoilhamorais@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "mongoose": "^5.5.12",
+    "mongoose-paginate": "^5.0.3",
+    "require-dir": "^1.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
