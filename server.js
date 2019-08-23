@@ -8,7 +8,7 @@ const session = require('express-session');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://developer:fIzG8qbALJjSfC8V@api-3jify.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://developer:dDIpc0Og6nB5nqT2@api-3jify.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true });
 mongoose
     .connection
         .once('open', () => {console.log('Sucefull database attachment.');})

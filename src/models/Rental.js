@@ -3,8 +3,16 @@ const mongoosePaginate = require("mongoose-paginate");
 
 const RentalSchema = new mongoose.Schema({
     customer: {
-        type: String,
-        required: true
+        type: Object,
+        required: true,
+        name: {
+            type: String,
+            required: true,
+        },
+        id: {
+            type: String,
+            required: true
+        }
     },
     merchan: {
         type: String,
