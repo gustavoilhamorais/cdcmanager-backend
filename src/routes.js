@@ -2,23 +2,16 @@
 const express = require("express");
 const routes = express.Router();
 
-const CategoryController = require("./controllers/CategoryController");
+// const DashboardController = require("./controllers/DashboardController");
 const CustomerController = require("./controllers/CustomerController");
 const MerchandiseController = require("./controllers/MerchandiseController");
 const ProviderController = require("./controllers/ProviderController");
-const RentalController = require("./controllers/RentalController");
 const SaleController = require("./controllers/SaleController");
-const DashboardController = require("./controllers/DashboardController");
+const SalesmanController = require("./controllers/SalesmanController");
+const ShoppingController = require("./controllers/ShoppingController");
 
 // Dashboard //
-routes.get("/", DashboardController.dashboard);
-
-// Categories //
-routes.get("/categories", CategoryController.index);
-routes.get("/categories/:id", CategoryController.show);
-routes.post("/categories", CategoryController.store);
-routes.put("/categories/:id", CategoryController.update);
-routes.delete("/categories/:id", CategoryController.destroy);
+// routes.get("/", DashboardController.dashboard);
 
 // Customer //
 routes.get("/customers", CustomerController.index);
@@ -40,13 +33,7 @@ routes.get("/providers/:id", ProviderController.show);
 routes.post("/providers", ProviderController.store);
 routes.put("/providers/:id", ProviderController.update);
 routes.delete("/providers/:id", ProviderController.destroy);
-
-// Rental //
-routes.get("/rentals", RentalController.index);
-routes.get("/rentals/:id", RentalController.show);
-routes.post("/rentals", RentalController.store);
-routes.put("/rentals/:id", RentalController.update);
-routes.delete("/rentals/:id", RentalController.destroy);
+routes.post("/providers/delete", ProviderController.destroyMultiple);
 
 // Sale //
 routes.get("/sales", SaleController.index);
@@ -54,5 +41,19 @@ routes.get("/sales/:id", SaleController.show);
 routes.post("/sales", SaleController.store);
 routes.put("/sales/:id", SaleController.update);
 routes.delete("/sales/:id", SaleController.destroy);
+
+// Salesman //
+routes.get("/salesman", SalesmanController.index);
+routes.get("/salesman/:id", SalesmanController.show);
+routes.post("/salesman", SalesmanController.store);
+routes.put("/salesman/:id", SalesmanController.update);
+routes.delete("/salesman/:id", SalesmanController.destroy);
+
+// Shopping //
+routes.get("/shopping", ShoppingController.index);
+routes.get("/shopping/:id", ShoppingController.show);
+routes.post("/shopping", ShoppingController.store);
+routes.put("/shopping/:id", ShoppingController.update);
+routes.delete("/shopping/:id", ShoppingController.destroy);
 
 module.exports = routes;

@@ -8,15 +8,15 @@ const ProviderSchema = new mongoose.Schema({
     },
     address: {
         type: String,
-        required: false
     },
     document: {
         type: String,
-        required: false
     },
     phone: {
         type: String,
-        required: false
+    },
+    email: {
+        type: String,
     },
     createdAt: {
         type: Date,

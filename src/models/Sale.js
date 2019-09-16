@@ -2,25 +2,45 @@ const mongoose = require("mongoose");
 const mongoosePaginate = require("mongoose-paginate");
 
 const SaleSchema = new mongoose.Schema({
+    id: {
+        type: String,
+        required: true
+    },
+    nf: {
+        type: String,
+        required: true
+    },
     customer: {
         type: String,
-        required: true
+        required: true,
     },
-    merchan: {
+    customerID: {
         type: String,
         required: true
     },
-    discount: {
+    saleCoast: {
         type: Number,
-        required: false
+        default: 0
     },
-    value: {
+    saleValue: {
         type: Number,
         required: true
     },
-    observations: {
+    salesman: {
         type: String,
-        required: false
+        default: 'N/A'
+    },
+    salesmanID: {
+        type: String,
+        default: 0
+    },
+    status: {
+        type: Boolean,
+        default: 1
+    },
+    number: {
+        type: Number,
+        required: true
     },
     createdAt: {
         type: Date,

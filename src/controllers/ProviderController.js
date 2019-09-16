@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Provider = mongoose.model("Provider");
 
 const validate = async (props) => {
+  console.log(props);
   try {
     if (!props.name || !props.address || !props.phone || !props.document) {
       return { status: 'warning', message: "Preencha todos os campos." }
@@ -14,7 +15,7 @@ const validate = async (props) => {
     } else {
       const response = await Provider.findOne({ name: props.name });
       if (!response) {
-        return { status: 'success', message: "Mercadoria Cadastrada." };
+        return { status: 'success', message: "Fornecedor Cadastrado." };
       } else if (response.name === props.name) {
         return { status: 'warning', message: "Este nome já está em uso!" }
       }
@@ -48,7 +49,7 @@ module.exports = {
         await Provider.create(req.body);
         return res.json(validation)
       } else  return res.json(validation);
-    } catch { return res.json({ staus: 'error', message: error.message}); }
+    } catch { return res.json({ staus: 'error', message: error.message }); }
   },
 
   async update(req, res) {
@@ -60,8 +61,21 @@ module.exports = {
 
   async destroy(req, res) {
     try {
-      await Provider.findByIdAndDelete(req.params.id);
-      return res.send()
+      const response = await Provider.findByIdAndDelete(req.params.id);
+      if (response) {
+        return res.json({ status: 'success', message: 'Fornecedor removido.'});
+      }
     } catch { return res.send() }
+  },
+
+  async destroyMultiple(req, res) {
+    try {
+      const { ids } = req.body;
+      const response = await ids.map(id => Provider.findOneAndDelete(id));
+      console.log(response);
+      if (response) {
+        return res.json({ status: 'success', message: 'Fornecedores removidos.' })
+      }
+    } catch (error) { return res.json({ status: 'error', message: error.message }) }
   }
 };

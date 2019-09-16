@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const mongoosePaginate = require("mongoose-paginate");
 
 const MerchandiseSchema = new mongoose.Schema({
-  category: {
+  name: {
     type: String,
     required: true
   },
@@ -14,20 +14,17 @@ const MerchandiseSchema = new mongoose.Schema({
       type: Number,
       required: true
   },
-  status: {
-      type: Boolean,
-      required: true,
-      default: true
+  atStorage: {
+      type: Number,
+      default: 0
+  },
+  minimumAtStorage: {
+    type: Number,
+    default: 0
   },
   code: {
     type: Number,
-    required: true,
     default: 000000
-  },
-  autoBecomeAvailable: {
-    type: Boolean,
-    required: true,
-    default: true
   },
   createdAt: {
     type: Date,
