@@ -42,6 +42,10 @@ const SaleSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    merchandise: {
+        type: Array,
+        required: true
+    },
     createdAt: {
         type: Date,
         default: Date.now() 
